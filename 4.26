@@ -1,0 +1,29 @@
+print("Hồ Đình Huân")
+print("MSSV:235752021610049")
+# Hàm tính số tiền thực của tài khoản
+def tinh_sotien_taikhoan():
+    so_du = 0  # Số dư ban đầu là 0
+    
+    # Nhập giao dịch từ người dùng, tiếp tục cho đến khi không còn nhập gì
+    while True:
+        giao_dich = input("Nhập giao dịch (hoặc nhấn Enter để kết thúc): ")
+        
+        # Nếu người dùng không nhập gì, dừng vòng lặp
+        if not giao_dich:
+            break
+        
+        # Tách giao dịch thành loại và số tiền
+        loai_giao_dich, so_tien = giao_dich.split()
+        so_tien = int(so_tien)  # Chuyển số tiền sang kiểu int
+        
+        # Cập nhật số dư tài khoản
+        if loai_giao_dich == 'D':
+            so_du += so_tien  # Tiền gửi
+        elif loai_giao_dich == 'W':
+            so_du -= so_tien  # Tiền rút
+            
+    # In ra số dư cuối cùng
+    print(f"Số dư tài khoản hiện tại là: {so_du}")
+
+# Gọi hàm để tính số dư tài khoản
+tinh_sotien_taikhoan()
